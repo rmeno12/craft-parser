@@ -6,4 +6,5 @@ setup(name='craft-parser',
       author='Rahul Menon',
       url='https://github.com/rmeno12/craft-parser',
       license='MIT',
+      packages=['craft-parser'],
       zip_safe=False)
