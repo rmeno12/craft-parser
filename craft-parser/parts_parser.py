@@ -40,3 +40,10 @@ class PartsParser:
 
   def save_masses(self, filename: str) -> 'PartsParser':
     json.dump(self.masses, Path(filename).open(mode='w'), indent="\t")
+
+    return self
+
+  def load_masses(self, filename: str) -> 'PartsParser':
+    self.masses = json.load(Path(filename).open(mode='r'))
+
+    return self
