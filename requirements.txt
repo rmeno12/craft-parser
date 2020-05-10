@@ -1,8 +1,18 @@
+astroid==2.4.1
+colorama==0.4.3
 -e git+https://github.com/rmeno12/craft-parser.git@68d9df1f22403544d19b699f325cab6d25f8498a#egg=craft_parser
 cycler==0.10.0
+isort==4.3.21
 kiwisolver==1.2.0
+lazy-object-proxy==1.4.3
 matplotlib==3.2.1
+mccabe==0.6.1
 numpy==1.18.4
+pathlib==1.0.1
+pylint==2.5.2
 pyparsing==2.4.7
 python-dateutil==2.8.1
 six==1.14.0
+toml==0.10.0
+typed-ast==1.4.1
+wrapt==1.12.1
