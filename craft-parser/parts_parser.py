@@ -5,6 +5,8 @@ class PartsParser:
   @staticmethod
   def parse_masses(filepath: str) -> dict:
     masses = {}
+
+    # Collect and iterate over the cfg files for each stock part
     cfgs = list(Path(filepath + "\\Squad\\Parts").rglob("*.cfg"))
     for cfg in cfgs[1:]:
       name = ''
@@ -33,6 +35,20 @@ class PartsParser:
             break
       
       if name != '' and mass != -1:
+        masses[name] = mass
+
+    # Collect and iterate over each stock resource from the single file that describes them all
+    resource_cfg = Path(filepath + "\\Squad\\Resources\\ResourcesGeneric.cfg")
+    resource_lines = []
+    with resource_cfg.open() as f:
+      resource_lines = [line.strip() for line in f.readlines()]
+    
+    for index, line in enumerate(resource_lines):
+      name = ''
+      mass = -1
+      if 'RESOURCE_DEFINITION' in line:
+        name = resource_lines[index + 2].split()[2]
+        mass = float(resource_lines[index + 5].split()[2])
         masses[name] = mass
 
     return masses

@@ -330,5 +330,15 @@
 	"roverWheel1": 0.075,
 	"roverWheel2": 0.05,
 	"wheelMed": 0.105,
-	"roverWheel3": 1.25
+	"roverWheel3": 1.25,
+	"LiquidFuel": 0.005,
+	"Oxidizer": 0.005,
+	"SolidFuel": 0.0075,
+	"MonoPropellant": 0.004,
+	"XenonGas": 0.0001,
+	"ElectricCharge": 0.0,
+	"IntakeAir": 0.005,
+	"EVA": 0.0,
+	"Ore": 0.01,
+	"Ablator": 0.001
 }
