@@ -11,10 +11,9 @@ def setup_arguments():
 
 def main():
   args = setup_arguments()
-  parts_parser = PartsParser()
-  masses = parts_parser.parse_masses(args.ksp_gamedata).masses
-  # parts_parser.save_masses('testout.json')
-  # print(args.ksp_gamedata)
+  masses = PartsParser.parse_masses(args.ksp_gamedata)
+
+  print(masses)
 
 
 if __name__ == '__main__':

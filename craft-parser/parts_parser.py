@@ -2,10 +2,9 @@ from pathlib import Path
 import json
 
 class PartsParser:
-  def __init__(self):
-    self.masses = {}
-
-  def parse_masses(self, filepath: str) -> 'PartsParser':
+  @staticmethod
+  def parse_masses(filepath: str) -> dict:
+    masses = {}
     cfgs = list(Path(filepath + "\\Squad\\Parts").rglob("*.cfg"))
     for cfg in cfgs[1:]:
       name = ''
@@ -34,16 +33,16 @@ class PartsParser:
             break
       
       if name != '' and mass != -1:
-        self.masses[name] = mass
+        masses[name] = mass
 
-    return self
+    return masses
 
-  def save_masses(self, filename: str) -> 'PartsParser':
-    json.dump(self.masses, Path(filename).open(mode='w'), indent="\t")
+  @staticmethod
+  def save_masses(masses: dict, filename: str):
+    json.dump(masses, Path(filename).open(mode='w'), indent="\t")
 
-    return self
+  @staticmethod
+  def load_masses(filename: str) -> dict:
+    masses = json.load(Path(filename).open(mode='r'))
 
-  def load_masses(self, filename: str) -> 'PartsParser':
-    self.masses = json.load(Path(filename).open(mode='r'))
-
-    return self
+    return masses
